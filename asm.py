@@ -1,3 +1,11 @@
+import sys
+
+if len(sys.argv) > 1:
+    arg1 = sys.argv[1]
+else:
+    print("No command line argument prodided, usage: " + sys.argv[1] + " <assmbly-term>")
+    print("An assembly-term can be a register or an instruction (like 'mov', but not 'mov eax, eax'. Or 'eax' itself)")
+    exit()
 instruction_db = {
     "mov": {
         "description": "Move: Copies the value from one location to another.",
@@ -321,8 +329,8 @@ register_db = {
     # Additional registers and their descriptions can be added here
 }
 
-while True:
-    instruction = input("Enter an instruction/register: ")
+if (1):
+    instruction = arg1
     
     if instruction in instruction_db:
         description = instruction_db[instruction]["description"]
